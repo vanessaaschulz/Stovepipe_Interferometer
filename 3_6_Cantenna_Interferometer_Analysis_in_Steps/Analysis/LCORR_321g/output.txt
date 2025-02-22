@@ -1,0 +1,150 @@
+Observation date 2024/10/21 00:00:00
+sunrise at Stockert Observatory will be [UTC]: 2024/10/21 06:05:56
+transit at Stockert Observatory will be [UTC]: 2024/10/21 11:17:39
+sunset at Stockert Observatory will be [UTC]: 2024/10/21 16:28:34
+Twilight morning at Stockert Observatory will be [UTC]: 2024/10/21 04:16:54
+Twilight evening at Stockert Observatory will be [UTC]: 2024/10/21 18:17:23
+Observed wavelength of central frequency0.21127023114869625 m
+Observed wavelength of lower end of bandwidth0.2114192228490832 m
+Observed wavelength of upper end of baseline bandwidth0.21112144929577464 m
+Results of baseline fit for West  antenna:
+residuals:1.3359451860786702
+Parameter 1/a:0.004441223682119396;4.209395927843244e-05
+Parameter 2/b:-0.11886532932353364;0.001407664620192284
+Parameter 3/c:0.34719151337833515;0.013612807392341952
+Parameter 4/d:563.9441287021664;0.02937151291835702
+Results of baseline fit for East  antenna:
+residuals:0.5720123653395316
+Parameter 1/a:-0.0005726144670147042;2.1023725265822945e-05
+Parameter 2/b:0.01915025922898308;0.0008064321795428559
+Parameter 3/c:-0.27966863816411647;0.00888291915897307
+Parameter 4/d:370.88650633085547;0.02052733367282688
+Results of baseline fit for Middle1  antenna:
+residuals:1.1619251346205908
+Parameter 1/a:-0.0019890373084920443;4.3250539260475e-05
+Parameter 2/b:0.10982021017027296;0.0017782422335422062
+Parameter 3/c:-1.6286770258380718;0.020919653482762923
+Parameter 4/d:360.8768473317364;0.05252590969304716
+Results of baseline fit for Middle2  antenna:
+residuals:1.3310477358475248
+Parameter 1/a:-0.0025231470908804654;4.9913272147729355e-05
+Parameter 2/b:0.13368842615852897;0.0020778832228442574
+Parameter 3/c:-1.92779657956798;0.02473816413159666
+Parameter 4/d:394.68287378336765;0.063140341151509
+Error of Antenna Temperature of West Measurement[K]:1.965897436995447
+Error of Antenna Temperature of East Measurement[K]:0.7775028539062557
+Error of Antenna Temperature of Middle1 Measurement[K]:1.414586334126406
+Error of Antenna Temperature of Middle2 Measurement[K]:1.6031571459888252
+Results of gaussian fit for West HPBW antenna:
+residuals:2.9858784328322763
+Parameter 1/a:34.09927869513319;0.062001375674194795
+Parameter 2/b:11.140174527119923;0.004320243487810997
+Parameter 3/c:2.160072863840873;0.004937053779738451
+Parameter 4/d:-0.653324886811152;0.026673793097306005
+Results of gaussian fit for East HPBW antenna:
+residuals:6.528391515288157
+Parameter 1/a:17.07052399534698;0.037401556663291625
+Parameter 2/b:10.987296442133944;0.004863402863675961
+Parameter 3/c:2.0059296157539794;0.005473513768480005
+Parameter 4/d:-0.29333338840995016;0.015111862026315563
+Results of gaussian fit for Middle1 HPBW antenna:
+residuals:2.5531215594348855
+Parameter 1/a:22.172400280892976;0.04339062605242796
+Parameter 2/b:11.146749152130674;0.004165051976028651
+Parameter 3/c:1.917302754237209;0.004649497462236533
+Parameter 4/d:-0.10393376640130764;0.016898020410564655
+Results of gaussian fit for Middle2 HPBW antenna:
+residuals:2.4450994646403545
+Parameter 1/a:23.707156350801796;0.04814607188640132
+Parameter 2/b:11.138939223497667;0.0043179197327357826
+Parameter 3/c:1.9152026331316412;0.004819253168787554
+Parameter 4/d:-0.11610726707884578;0.018733541215513204
+results for HPBW  for each antenna:
+West:76.29874317749845;0.17438809805885877
+East:70.8540490214805;0.1933370990815441
+Middle1:67.7235443710624;0.16423094735092675
+Middle2:67.64936326191666;0.1702271094590978
+Results of baseline fit for WM real  correlation:
+residuals:0.08360670313847121
+Parameter 1/a:-0.0011919333069913543;7.930145138561448e-06
+Parameter 2/b:0.03836139350977377;0.00030175513308524504
+Parameter 3/c:-0.24568156922242787;0.0033020330734388195
+Parameter 4/d:-1.3341877995976943;0.007625241574616379
+Results of baseline fit for WM imag  correlation:
+residuals:0.10274616475469933
+Parameter 1/a:0.0005007200804889784;8.636099639403509e-06
+Parameter 2/b:-0.01532340649879926;0.0003309426134228231
+Parameter 3/c:0.09550267233012895;0.0036399368658458233
+Parameter 4/d:1.1610728173846756;0.00838274549403444
+RMS of MW real correlation Measurement:0.29538115911282503
+RMS of MW imag correlation Measurement:0.32233884854894673
+Results of baseline fit for EM real  correlation:
+residuals:0.043401861416781026
+Parameter 1/a:8.59140241187248e-05;5.582871589411124e-06
+Parameter 2/b:-0.003390975804330169;0.00021429861122769275
+Parameter 3/c:0.005159777894207359;0.002359616474904268
+Parameter 4/d:0.5114903688859559;0.005432857495074575
+Results of baseline fit for EM imag  correlation:
+residuals:0.04492557711731452
+Parameter 1/a:-0.0002600266606403801;5.690952126671455e-06
+Parameter 2/b:0.005921341658085559;0.00021823500524600597
+Parameter 3/c:-0.008868918341559602;0.002401262406049771
+Parameter 4/d:-0.8529499154369761;0.005527070777424789
+RMS of EM real correlation Measurement:0.20836222397116122
+RMS of EM imag correlation Measurement:0.21262154543128314
+Results of baseline fit for EW real  correlation:
+residuals:0.04436250552907049
+Parameter 1/a:-5.393542436299682e-05;5.64240685193692e-06
+Parameter 2/b:0.00016710805510801918;0.00021659453434813767
+Parameter 3/c:0.02136950803305096;0.002385162489146277
+Parameter 4/d:-1.8132977205444407;0.005492462722563875
+Results of baseline fit for EW imag  correlation:
+residuals:0.07378156556167052
+Parameter 1/a:-0.00013178065442775132;7.281311292584301e-06
+Parameter 2/b:0.0017290092704053605;0.0002794338053076089
+Parameter 3/c:0.0188115867979577;0.003076799566374083
+Parameter 4/d:0.755999367768883;0.0070844063902466
+RMS of EW real correlation Measurement:0.2107332412657978
+RMS of EW imag correlation Measurement:0.272138461965119
+Results of EM baseline:
+maximum baseline [m]: 7.9
+Hour Angle of intersection of baseline with northern hemisphere (S=0°, W=90°, N=180°, E=270°)[deg]: 0.0
+declination of intersection of baseline with northern hemisphere[deg]: 0.0
+Results of MW baseline:
+maximum baseline [m]: 2.0
+Hour Angle of intersection of baseline with northern hemisphere (S=0°, W=90°, N=180°, E=270°)[deg]: 0.0
+declination of intersection of baseline with northern hemisphere[deg]: 0.0
+Results of EW baseline:
+maximum baseline [m]: 9.9
+Hour Angle of intersection of baseline with northern hemisphere (S=0°, W=90°, N=180°, E=270°)[deg]: 0.0
+declination of intersection of baseline with northern hemisphere[deg]: 0.0
+Results of EM baseline:
+Min Scale from uv coverage: 1.5322648842218856 deg
+time of min scale:11.294166597388887
+Max Scale from uv coverage: 5.493905772313833 deg
+time of max scale:16.47536764316667
+Results of MW baseline:
+Min Scale from uv coverage: 6.052446292676448 deg
+time of min scale:11.294166597388887
+Max Scale from uv coverage: 21.70092780063964 deg
+time of max scale:16.47536764316667
+Results of EW baseline:
+Min Scale from uv coverage: 1.2227164227629186 deg
+time of min scale:11.294166597388887
+Max Scale from uv coverage: 4.384025818311039 deg
+time of max scale:16.47536764316667
+Results of fit EM baseline:
+residuals:4.175863928129978
+Parameter 1/a:20.353686494583936;0.7116313894306542
+Parameter 2/b:0.5568328113690494;0.0018942529181592285
+Parameter 3/c:2.3487179668343874;0.08622825620335615
+Results of fit MW baseline:
+residuals:1358.124756015342
+Parameter 1/a:91.40408192564198;80.91162644056121
+Parameter 2/b:0.5531338401721342;0.05087192702310273
+Parameter 3/c:4.041929807260308;3.749893939906086
+Results of fit EW baseline:
+residuals:19.579121271183194
+Parameter 1/a:14.291049696800446;0.9298095880605413
+Parameter 2/b:0.5659705477664533;0.003413739150707887
+Parameter 3/c:2.020130802132757;0.12952983801512008
