@@ -43,11 +43,11 @@ def aperture_function(x, y, baselines_x, baselines_y, sigma):
         aperture += np.exp(-((x - pos_x)**2 + (y+pos_y)**2) / (sigma[i]**2))
     return aperture
 
-def dirt_beam(scan_number,wavel, baselines_x, baselines_y, HPBW,grid_size):
+def PSF(scan_number,wavel, baselines_x, baselines_y, HPBW,grid_size):
     '''
     input: Wavelength, Position of Baselines (x,y), HPBW, Nx and Ny resolution gridding
-    create aperture function and FFT of it builds PSF
-    output: dirty beam
+    create aperture function (of 3 Gaussian sampling Functions) and FFT of it builds PSF
+    output: PSF at local noon time
     '''
     b_x =baselines_x*u.m/wavel
     b_y =baselines_y*u.m/wavel
@@ -88,14 +88,39 @@ def dirt_beam(scan_number,wavel, baselines_x, baselines_y, HPBW,grid_size):
     plt.xlabel('x')
     plt.ylabel('y')
     plt.tight_layout()
-    plt.savefig('./Analysis/LCORR_'+str(scan_number)+'/dirty_beam_'+str(grid_size)+'.png',dpi=200,bbox_inches='tight')
+    plt.savefig('./Analysis/LCORR_'+str(scan_number)+'/PSF_noon_'+str(grid_size)+'.png',dpi=200,bbox_inches='tight')
     
     return PSF_intensity    
 
-def grid_ifft(scan_number,vis, u_list,v_list,grid_size):
+def dirty_beam(scan_number,u_list,v_list,grid_size):
     '''
     input: visibility , u and v coordinates, Nx and Ny resolution gridding
-    inverse fouriertransform of measured visibility 
+    inverse fourier transform of Sampling function [W(u,v)=1 if measured else 0], natural weighting
+    output: dirty beam
+    '''
+    u_grid = np.linspace(min(u_list), max(u_list), grid_size)
+    v_grid = np.linspace(min(v_list), max(v_list), grid_size)
+    U, V = np.meshgrid(u_grid, v_grid)
+    
+    vis_grid = griddata((u_list, v_list), np.ones(len(u_list)), (U, V), method='cubic', fill_value=0)
+    
+    dirty_beam = fftshift(ifft2(vis_grid))
+    
+    
+    plt.figure(figsize=(10,10))
+    plt.title(f'Dirty Beam with grid resolution:{grid_size}', fontsize=20)
+    img1=plt.imshow((np.abs(dirty_beam)),extent=(-25,25,-25,25),cmap="inferno")
+    plt.xlabel('l [in wavelength]',fontsize=20)
+    plt.ylabel('m [in wavelength]',fontsize=20)
+    plt.colorbar(img1,shrink=0.8)
+    plt.savefig('./Analysis/LCORR_'+str(scan_number)+'/dirty_beam_'+str(grid_size)+'.png',dpi=200,bbox_inches='tight')
+    return dirty_beam
+
+
+def dirty_map(scan_number,vis, u_list,v_list,grid_size):
+    '''
+    input: visibility , u and v coordinates, Nx and Ny resolution gridding
+    inverse fourier transform of measured visibility 
     output: dirty map
     '''
     u_grid = np.linspace(min(u_list), max(u_list), grid_size)
@@ -115,14 +140,14 @@ def grid_ifft(scan_number,vis, u_list,v_list,grid_size):
     plt.savefig('./Analysis/LCORR_'+str(scan_number)+'/dirty_map_'+str(grid_size)+'.png',dpi=200,bbox_inches='tight')
     return dirty_image
 
-def clean(dirty_image, psf, threshold, max_iter,gain):
+def clean(dirty_image, dirtybeam, threshold, max_iter,gain):
     """Perform the CLEAN algorithm."""
     # Step 1: initialize clean image and residual image
     
     clean_image = np.zeros_like(dirty_image)
     residual = np.copy(dirty_image)
     
-    psf_size = psf.shape[0]
+    psf_size = dirtybeam.shape[0]
     psf_center = psf_size // 2
     
     # iterate through number of iterations
@@ -149,7 +174,7 @@ def clean(dirty_image, psf, threshold, max_iter,gain):
         x_start = max(0, peak_coords[1] - psf_center)
         x_end = min(dirty_image.shape[1], peak_coords[1] + psf_center + 1)
 
-        psf_slice = psf[psf_center - (peak_coords[0] - y_start):psf_center + (y_end - peak_coords[0]),
+        psf_slice = dirtybeam[psf_center - (peak_coords[0] - y_start):psf_center + (y_end - peak_coords[0]),
                         psf_center - (peak_coords[1] - x_start):psf_center + (x_end - peak_coords[1])]
 
         # Ensure the PSF slice and the residual region have the same shape
@@ -157,7 +182,7 @@ def clean(dirty_image, psf, threshold, max_iter,gain):
                                         (0, max(0, x_end - x_start - psf_slice.shape[1]))), mode='constant')
 
         # Subtract the scaled PSF from the residual
-        residual[y_start:y_end, x_start:x_end] -= gain*peak_value*psf_slice.value
+        residual[y_start:y_end, x_start:x_end] -= gain*peak_value*psf_slice#.value
 
         # Step 5: Record peak position and magnitude subtracted in clean image
         # Add the peak to the clean image
