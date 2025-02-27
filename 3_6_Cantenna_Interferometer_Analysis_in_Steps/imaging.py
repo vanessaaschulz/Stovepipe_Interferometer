@@ -66,7 +66,7 @@ def PSF(scan_number,wavel, baselines_x, baselines_y, HPBW,grid_size):
     PSF = np.fft.fftshift(np.fft.fft2(A))
     
     # Calculate Intensity of PSF
-    PSF_intensity = np.abs(PSF)**2
+    PSF_intensity = np.abs(PSF)
 
     # Normalisation of PSF
     PSF_intensity /= np.max(PSF_intensity)
@@ -109,9 +109,9 @@ def dirty_beam(scan_number,u_list,v_list,grid_size):
     
     plt.figure(figsize=(10,10))
     plt.title(f'Dirty Beam with grid resolution:{grid_size}', fontsize=20)
-    img1=plt.imshow((np.abs(dirty_beam)),extent=(-25,25,-25,25),cmap="inferno")
-    plt.xlabel('l [in wavelength]',fontsize=20)
-    plt.ylabel('m [in wavelength]',fontsize=20)
+    img1=plt.imshow((np.abs(dirty_beam)),cmap="inferno")
+    plt.xlabel('l',fontsize=20)
+    plt.ylabel('m',fontsize=20)
     plt.colorbar(img1,shrink=0.8)
     plt.savefig('./Analysis/LCORR_'+str(scan_number)+'/dirty_beam_'+str(grid_size)+'.png',dpi=200,bbox_inches='tight')
     return dirty_beam
@@ -133,9 +133,9 @@ def dirty_map(scan_number,vis, u_list,v_list,grid_size):
     
     plt.figure(figsize=(10,10))
     plt.title(f'Dirty Map with grid resolution:{grid_size}', fontsize=20)
-    img1=plt.imshow((np.abs(dirty_image)),extent=(-25,25,-25,25),cmap="inferno")
-    plt.xlabel('l [in wavelength]',fontsize=20)
-    plt.ylabel('m [in wavelength]',fontsize=20)
+    img1=plt.imshow((np.abs(dirty_image)),cmap="inferno")
+    plt.xlabel('l',fontsize=20)
+    plt.ylabel('m',fontsize=20)
     plt.colorbar(img1,shrink=0.8)
     plt.savefig('./Analysis/LCORR_'+str(scan_number)+'/dirty_map_'+str(grid_size)+'.png',dpi=200,bbox_inches='tight')
     return dirty_image
