@@ -62,8 +62,8 @@ def PSF(scan_number,wavel, baselines_x, baselines_y, HPBW,grid_size):
     
     # Calculate Aperture Function
     A = aperture_function(X, Y, b_x, b_y, sigma)
-    # Fourier Transform of Aperture Function
-    PSF = np.fft.fftshift(np.fft.fft2(A))
+    # inverse Fourier Transform of Aperture Function
+    PSF = np.fft.fftshift(np.fft.ifft2(A))
     
     # Calculate Intensity of PSF
     PSF_intensity = np.abs(PSF)
