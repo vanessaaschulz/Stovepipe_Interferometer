@@ -17,6 +17,6 @@ calls upon the python scripts. This is used to analyse data collected with a 3 e
 * Calculating Complex Visibility (Amplitude and Phase)
 * Calculating the UV Coverage
 * Deriving a Dirty Map, snapshot-PSF and Dirty Beam
-* Aplly CLEAN algorithm
+* Apply CLEAN algorithm
 * Estimate fringe period and compare to modeled fringe period
 
